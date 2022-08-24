@@ -1,0 +1,28 @@
+{%extends 'countries/base.html'%}
+{%block content%}
+    <div class="container">
+        {%if messages%}
+            {%for message in messages%}
+                {%if message.tags == "error"%}
+                    <div class="alert alert-danger">{{message}}</div>
+                {%else%}
+                    <div class="alert alert-{{message.tags}}">{{message}}</div>
+                {%endif%}
+            {%endfor%}
+        {%endif%}
+        <h1>Login</h1>
+        <form action="" method="POST">
+            {%csrf_token%}
+            <div class="form-group">
+                <label for="id_username">{{form.username.label}}</label>
+                {{form.username}}
+            </div>
+            <div class="form-group">
+                <label for="id_password">{{form.password.label}}</label>
+                {{form.password}}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{%url 'password_reset'%}" class="btn btn-info">Reset Password</a>
+        </div>
+        </form>
+{%endblock%}

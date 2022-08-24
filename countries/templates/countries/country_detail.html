@@ -1,0 +1,23 @@
+{%extends 'countries/base.html'%}
+{%load humanize%}
+{%block content%}
+<img src="{{country.image}}" alt="">
+<h1>{{country.name}}</h1>
+<h3>Capital: {{country.capital}}</h4>
+<h4>Region: {{country.region}}</h4>
+<h4>Subregion: {{country.subregion}}</h4>
+<h4>Population: {{country.population|intcomma}}</h4>
+<div class="languages">
+    <h4>Language{{country.languages|length|pluralize}}</h4>
+    {%for language in country.languages%}
+        <h4>{{language}}</h4>
+    {%endfor%}
+</div>
+
+<div class="currency">
+    <h4>Currenc{{country.currencies|length|pluralize:"y,ies"}}</h4>
+    {%for currency in country.currencies%}
+        <h4>{{currency.name}}({{currency.symbol}})</h4>
+    {%endfor%}
+</div>
+{%endblock%}

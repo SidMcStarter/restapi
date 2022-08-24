@@ -1,0 +1,14 @@
+{%extends 'countries/base.html'%}
+{%load crispy_forms_tags%}
+{%block content%}
+    <div class="container">
+        <h1 class="pb-3 border-bottom">User Registration</h1>
+        <form action="" method="POST" class="mt-4">
+            {%csrf_token%}
+            {{form|crispy}}
+            <input type="submit" value="Register" class="btn btn-success">
+            <p class="small mt-2">Already have an account! <a href="{% url 'login' %}">Login</a></p>
+        </form>
+    </div>
+
+{%endblock%}
